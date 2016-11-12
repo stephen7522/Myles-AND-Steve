@@ -22,4 +22,17 @@ void loop() {
   sparki.updateLCD(); // display all of the information written to the screen
  
   delay(100); // wait 0.1 seconds
+ if (lineLeft < 500)
+  { 
+    sparki.moveRight();
+  }
+  if (lineRight < 500);
+  { 
+    sparki.moveLeft();
+  }
+ if ((lineCenter < 1000) && (lineCenter > 700))
+ {
+  sparki.moveForward();
+ }
 }
+
