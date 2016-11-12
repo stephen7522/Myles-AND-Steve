@@ -26,10 +26,6 @@ void loop() {
   { 
     sparki.moveRight();
   }
-  if (lineRight < 500);
-  { 
-    sparki.moveLeft();
-  }
  if ((lineCenter < 1000) && (lineCenter > 700))
  {
   sparki.moveForward();
