@@ -24,15 +24,11 @@ void loop() {
   delay(100); // wait 0.1 seconds
  if (lineLeft < 800) 
   { 
-    sparki.moveLeft();
+    sparki.moveRight();
   }
  if ((lineCenter < 1000) && (lineCenter > 800))
  {
   sparki.moveForward();
- }
- if ((lineRight < 800) && (lineCenter <800) && (lineLeft < 800))
- {
-  sparki.moveRight();
  }
 }
 
