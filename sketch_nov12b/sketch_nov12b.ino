@@ -20,22 +20,24 @@ void loop() {
  
   sparki.print("Line Right: "); // show right line sensor on screen
   sparki.println(lineRight);
+
+ sparki.print("Edge Left: "); // show center line sensor on screen
+  sparki.println(edgeLeft);
  
+  sparki.print("Edge Right: "); // show right line sensor on screen
+  sparki.println(edgeRight);
+  
   sparki.updateLCD(); // display all of the information written to the screen
  
   delay(100); // wait 0.1 seconds
- if((lineLeft < 800) &&(lineRight < 800))
+ if (edgeRight > 500)
   { 
+    sparki.moveForward();
+  } 
+    if (edgeRight > 600)
+  {
     sparki.moveRight();
   }
- if ((lineCenter < 1000) && (lineCenter > 800))
- {
-  sparki.moveForward();
- }
-if ((edgeLeft < 800) && (edgeRight > 1000))
-{
-  sparki.moveLeft();
-}
 }
 
 
