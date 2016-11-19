@@ -1,5 +1,9 @@
+#include <Sparki.h>
+
+ 
 void setup() {
   // put your setup code here, to run once:
+
 
 }
 
@@ -14,13 +18,30 @@ void loop() {
   // write the measurements to the screen
   sparki.print("Accel X: "); 
   sparki.println(x);
+  if (x > 1 && 1>y>1) 
+    sparki.beep(1000);
+ else sparki.beep(0);
+ delay(100);
 
+    if (x > 1 && 1>y>1) 
+    sparki.beep(1000);
+ else sparki.beep(0);
+ delay(100);
+ 
   sparki.print("Accel Y: "); 
   sparki.println(y);
+ if (y > 1)
+    sparki.beep(100);
+ else sparki.beep(0);
+ delay(100);
   
   sparki.print("Accel Z: "); 
   sparki.println(z);
-  
+ if (z > -8)
+    sparki.beep(800);
+ else sparki.beep(0);
+ delay(100);
+ 
   sparki.updateLCD(); // display all of the information written to the screen
   delay(100);
   
