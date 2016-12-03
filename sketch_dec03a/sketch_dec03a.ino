@@ -1,7 +1,8 @@
 #include <Sparki.h>
 
 void setup() {
- 
+    Serial1.begin(9600);
+
   sparki.clearLCD();
 
  
@@ -19,6 +20,7 @@ void setup() {
 }
 
 void loop() {
+//sparki.moveForward();
   int code = sparki.readIR();
   int cm = sparki.ping(); // measures the distance with Sparki's eyes
 
@@ -45,15 +47,16 @@ switch(code){
 
   // buzzer
   case 74: sparki.beep();
- 
-    Serial.print("Distance: "); 
-    Serial.print(cm); // tells the distance to the computer
-    Serial.println(" cm");  
+  Serial1.print("Distance = ");
+  Serial1.print(sparki.ping());
+  Serial1.println(" cm");
+
+  delay(300);  
     if(cm != -1) // make sure its not too close or too far
     { 
         if(cm < 10) // if the distance measured is less than 10 centimeters
         {
-            sparki.beep(); // beep!
+            sparki.beep(1000); // beep!
         }
     }
  
@@ -62,9 +65,9 @@ switch(code){
   break;
 
   // Servo Buttons
-  case 90: sparki.servo(SERVO_LEFT); break;
+  case 90: sparki.servo(SERVO_RIGHT); break;
   case 28: sparki.servo(SERVO_CENTER); break;
-  case 8: sparki.servo(SERVO_RIGHT); break;
+  case 8: sparki.servo(SERVO_LEFT); break;
 
   // RGB LED
   case 25: sparki.RGB(RGB_OFF); break;
@@ -77,6 +80,7 @@ switch(code){
   }
 
   sparki.updateLCD();
+  
 }
 
 
